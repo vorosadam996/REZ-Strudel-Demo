@@ -21,4 +21,4 @@
 
 ## Publication checks
 
-Public repository and Pages checks are recorded in STATUS.md after deployment. A successful build alone does not prove a live deployment.
+GitHub API confirmed that the separate demo repository is public and its Pages build succeeded. The public HTTPS page was then opened in Chrome: the ready UI loaded, Play started the audio context, notes were scheduled, and the signal analyser measured nonzero output (peak approximately 0.0404 at the beginning of the public-site check). Source/license links are served alongside the app. The native application's repository remained private. See STATUS.md for URLs. These checks do not replace the human/device checks listed above.
