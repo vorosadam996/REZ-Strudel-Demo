@@ -1,0 +1,661 @@
+[
+  {
+    "name": "@babel/runtime",
+    "version": "7.29.10",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/babel/babel.git",
+      "directory": "packages/babel-runtime"
+    }
+  },
+  {
+    "name": "@jridgewell/sourcemap-codec",
+    "version": "1.6.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/jridgewell/sourcemaps.git",
+      "directory": "packages/sourcemap-codec"
+    }
+  },
+  {
+    "name": "@oxc-project/types",
+    "version": "0.154.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/oxc-project/oxc.git",
+      "directory": "npm/oxc-types"
+    }
+  },
+  {
+    "name": "@rolldown/binding-darwin-arm64",
+    "version": "1.2.14",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/rolldown/rolldown.git",
+      "directory": "packages/rolldown"
+    }
+  },
+  {
+    "name": "@rolldown/pluginutils",
+    "version": "1.0.1",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/rolldown/plugins.git",
+      "directory": "packages/pluginutils"
+    }
+  },
+  {
+    "name": "@rollup/plugin-replace",
+    "version": "5.0.7",
+    "license": "MIT",
+    "repository": {
+      "url": "rollup/plugins",
+      "directory": "packages/replace"
+    }
+  },
+  {
+    "name": "@rollup/pluginutils",
+    "version": "5.4.0",
+    "license": "MIT",
+    "repository": {
+      "url": "rollup/plugins",
+      "directory": "packages/pluginutils"
+    }
+  },
+  {
+    "name": "@strudel/core",
+    "version": "1.0.1",
+    "license": "AGPL-3.0-or-later",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/tidalcycles/strudel.git"
+    }
+  },
+  {
+    "name": "@strudel/mini",
+    "version": "1.0.1",
+    "license": "AGPL-3.0-or-later",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/tidalcycles/strudel.git"
+    }
+  },
+  {
+    "name": "@strudel/tonal",
+    "version": "1.0.1",
+    "license": "AGPL-3.0-or-later",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/tidalcycles/strudel.git"
+    }
+  },
+  {
+    "name": "@strudel/transpiler",
+    "version": "1.0.1",
+    "license": "AGPL-3.0-or-later",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/tidalcycles/strudel.git"
+    }
+  },
+  {
+    "name": "@strudel/web",
+    "version": "1.0.3",
+    "license": "AGPL-3.0-or-later",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/tidalcycles/strudel.git"
+    }
+  },
+  {
+    "name": "@strudel/webaudio",
+    "version": "1.0.1",
+    "license": "AGPL-3.0-or-later",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/tidalcycles/strudel.git"
+    }
+  },
+  {
+    "name": "@tonaljs/abc-notation",
+    "version": "4.9.3",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/array",
+    "version": "4.8.6",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/chord",
+    "version": "4.10.2",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/chord",
+    "version": "6.2.1",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/chord-detect",
+    "version": "4.9.3",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/chord-type",
+    "version": "4.8.2",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/chord-type",
+    "version": "5.2.1",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/chord-type",
+    "version": "5.2.1",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/chord-type",
+    "version": "5.2.1",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/collection",
+    "version": "4.9.1",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/core",
+    "version": "4.10.4",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/duration-value",
+    "version": "4.9.1",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/interval",
+    "version": "4.8.2",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/interval",
+    "version": "5.1.1",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/interval",
+    "version": "5.1.1",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/key",
+    "version": "4.11.4",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/midi",
+    "version": "4.10.4",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/mode",
+    "version": "4.9.4",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/note",
+    "version": "4.12.3",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/pcset",
+    "version": "4.10.3",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/pitch",
+    "version": "5.0.1",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/pitch",
+    "version": "5.0.3",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/pitch",
+    "version": "5.0.3",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/pitch",
+    "version": "5.0.3",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/pitch",
+    "version": "5.0.3",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/pitch",
+    "version": "5.0.3",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/pitch",
+    "version": "5.0.3",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/pitch",
+    "version": "5.0.3",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/pitch-distance",
+    "version": "5.0.2",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/pitch-distance",
+    "version": "5.0.7",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/pitch-interval",
+    "version": "5.0.2",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/pitch-interval",
+    "version": "6.1.2",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/pitch-interval",
+    "version": "6.1.2",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/pitch-interval",
+    "version": "6.1.2",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/pitch-interval",
+    "version": "6.1.2",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/pitch-interval",
+    "version": "6.1.2",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/pitch-interval",
+    "version": "6.1.2",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/pitch-note",
+    "version": "5.0.3",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/pitch-note",
+    "version": "6.1.2",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/progression",
+    "version": "4.9.4",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/range",
+    "version": "4.9.4",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/roman-numeral",
+    "version": "4.9.3",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/scale",
+    "version": "4.13.6",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/scale-type",
+    "version": "4.9.4",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/time-signature",
+    "version": "4.10.1",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@tonaljs/tonal",
+    "version": "4.10.0",
+    "license": "MIT",
+    "repository": null
+  },
+  {
+    "name": "@types/estree",
+    "version": "1.0.9",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+      "directory": "types/estree"
+    }
+  },
+  {
+    "name": "acorn",
+    "version": "8.19.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/acornjs/acorn.git"
+    }
+  },
+  {
+    "name": "chord-voicings",
+    "version": "0.0.1",
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/felixroos/chord-voicings.git"
+    }
+  },
+  {
+    "name": "detect-libc",
+    "version": "2.1.2",
+    "license": "Apache-2.0",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/lovell/detect-libc.git"
+    }
+  },
+  {
+    "name": "djipevents",
+    "version": "2.0.7",
+    "license": "Apache-2.0",
+    "repository": null
+  },
+  {
+    "name": "escodegen",
+    "version": "2.1.0",
+    "license": "BSD-2-Clause",
+    "repository": {
+      "type": "git",
+      "url": "http://github.com/estools/escodegen.git"
+    }
+  },
+  {
+    "name": "esprima",
+    "version": "4.0.1",
+    "license": "BSD-2-Clause",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/jquery/esprima.git"
+    }
+  },
+  {
+    "name": "estraverse",
+    "version": "5.3.0",
+    "license": "BSD-2-Clause",
+    "repository": {
+      "type": "git",
+      "url": "http://github.com/estools/estraverse.git"
+    }
+  },
+  {
+    "name": "estree-walker",
+    "version": "2.0.2",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/Rich-Harris/estree-walker"
+    }
+  },
+  {
+    "name": "estree-walker",
+    "version": "3.0.3",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/Rich-Harris/estree-walker"
+    }
+  },
+  {
+    "name": "esutils",
+    "version": "2.0.3",
+    "license": "BSD-2-Clause",
+    "repository": {
+      "type": "git",
+      "url": "http://github.com/estools/esutils.git"
+    }
+  },
+  {
+    "name": "fdir",
+    "version": "6.5.0",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/thecodrr/fdir.git"
+    }
+  },
+  {
+    "name": "fraction.js",
+    "version": "4.3.7",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/rawify/Fraction.js.git"
+    }
+  },
+  {
+    "name": "fsevents",
+    "version": "2.3.3",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/fsevents/fsevents.git"
+    }
+  },
+  {
+    "name": "jazz-midi",
+    "version": "1.7.9",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/jazz-soft/jazz-midi.git"
+    }
+  },
+  {
+    "name": "jzz",
+    "version": "1.9.6",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/jazz-soft/JZZ.git"
+    }
+  },
+  {
+    "name": "lightningcss",
+    "version": "1.33.0",
+    "license": "MPL-2.0",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/parcel-bundler/lightningcss.git"
+    }
+  },
+  {
+    "name": "lightningcss-darwin-arm64",
+    "version": "1.33.0",
+    "license": "MPL-2.0",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/parcel-bundler/lightningcss.git"
+    }
+  },
+  {
+    "name": "magic-string",
+    "version": "0.30.21",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/Rich-Harris/magic-string.git"
+    }
+  },
+  {
+    "name": "nanoid",
+    "version": "3.3.20",
+    "license": "MIT",
+    "repository": "ai/nanoid"
+  },
+  {
+    "name": "nanostores",
+    "version": "0.9.5",
+    "license": "MIT",
+    "repository": "nanostores/nanostores"
+  },
+  {
+    "name": "picocolors",
+    "version": "1.1.1",
+    "license": "ISC",
+    "repository": "alexeyraspopov/picocolors"
+  },
+  {
+    "name": "picomatch",
+    "version": "4.0.7",
+    "license": "MIT",
+    "repository": "micromatch/picomatch"
+  },
+  {
+    "name": "postcss",
+    "version": "8.5.30",
+    "license": "MIT",
+    "repository": "postcss/postcss"
+  },
+  {
+    "name": "rolldown",
+    "version": "1.2.14",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/rolldown/rolldown.git",
+      "directory": "packages/rolldown"
+    }
+  },
+  {
+    "name": "source-map",
+    "version": "0.6.1",
+    "license": "BSD-3-Clause",
+    "repository": {
+      "type": "git",
+      "url": "http://github.com/mozilla/source-map.git"
+    }
+  },
+  {
+    "name": "source-map-js",
+    "version": "1.2.2",
+    "license": "BSD-3-Clause",
+    "repository": "7rulnik/source-map-js"
+  },
+  {
+    "name": "superdough",
+    "version": "1.0.1",
+    "license": "AGPL-3.0-or-later",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/tidalcycles/strudel.git"
+    }
+  },
+  {
+    "name": "tinyglobby",
+    "version": "0.2.17",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/SuperchupuDev/tinyglobby.git"
+    }
+  },
+  {
+    "name": "vite",
+    "version": "8.3.4",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/vitejs/vite.git",
+      "directory": "packages/vite"
+    }
+  },
+  {
+    "name": "webmidi",
+    "version": "3.3.1",
+    "license": "Apache-2.0",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/djipco/webmidi.git"
+    }
+  }
+]
