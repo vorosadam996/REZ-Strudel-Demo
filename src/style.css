@@ -6,3 +6,4 @@
 @media(prefers-reduced-motion:reduce){.step.current .step-button{transform:none}}
 
 @media(max-width:580px){.edition{font-size:7px;letter-spacing:0}.edition-dot{padding:0 4px}.brand span{font-size:9px}.step select{appearance:none;-webkit-appearance:none;text-align:center;padding:0 2px}.intro-copy br{display:inline}.signal{min-width:0}}
+.step.split select{margin-top:4px}.step.split select:first-of-type{margin-top:7px}@media(min-width:581px){.step.split select{min-height:30px}}.step-button[aria-pressed=false] .step-mark{opacity:.35}
