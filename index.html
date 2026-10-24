@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#121512" />
-    <meta name="description" content="A tiny, open-source bass playground. Make a 16-step loop, move the filter, find your groove. Powered by Strudel." />
+    <meta name="description" content="A tiny, open-source acid bass sequencer: an editable 16-step 168 BPM acid line with live TEMPO, CUTOFF, RESONANCE and LEVEL, manual Play/Stop. Powered by Strudel." />
     <title>REZ / Little Acid — Strudel demo</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23121512'/%3E%3Cpath d='M12 42V22h12v20h12V22h16' fill='none' stroke='%23d5ff70' stroke-width='5'/%3E%3C/svg%3E" />
   </head>
@@ -12,23 +12,23 @@
     <div class="shell">
       <header><a class="brand" href="./" aria-label="REZ Little Acid home">REZ<span> / LITTLE ACID</span></a><span class="edition">STRUDEL<span class="edition-dot">●</span>WEB DEMO 01</span></header>
       <main>
-        <section class="intro"><div><p class="eyebrow">A LITTLE LOOP. A LOT OF POSSIBILITY.</p><h1>Find your<br /><em>acid feeling.</em></h1></div><p class="intro-copy">Sixteen steps. One bassline.<br /> Tap a rhythm, bend the filter,<br /> and make it yours.</p></section>
+        <section class="intro"><div><p class="eyebrow">A LITTLE LOOP. YOUR ACID LINE.</p><h1>Find your<br /><em>acid feeling.</em></h1></div><p class="intro-copy">Press Play to hear the acid line.<br /> Edit steps and sound while it plays.<br /> Press Stop to silence it.</p></section>
         <section class="instrument" aria-label="Bass synthesizer">
-          <div class="instrument-top"><div class="patch"><span class="live-dot" id="live-dot"></span><div><p class="eyebrow">BASS PATCH / 001</p><h2>Late-night signal</h2></div></div><div class="signal"><span>SIGNAL</span><canvas id="scope" width="230" height="46" aria-label="Bass signal visualization"></canvas></div></div>
-          <div class="transport"><button id="play" class="play" disabled><span aria-hidden="true">▶</span> Play</button><button id="stop" class="stop" disabled><span aria-hidden="true">■</span> Stop</button><label class="tempo">TEMPO <span><input id="bpm" type="number" min="70" max="180" step="1" value="128" inputmode="numeric" /> BPM</span></label><div class="transport-status"><span id="status" role="status" aria-live="polite">Loading instrument…</span><span class="quiet-note">Start with a comfortable listening volume.</span></div></div>
-          <div class="sequence-header"><h3>01 <span>MAKE A PATTERN</span></h3><span class="sequence-hint">Tap steps · choose notes below</span></div>
+          <div class="instrument-top"><div class="patch"><span class="live-dot" id="live-dot"></span><div><p class="eyebrow">ACID PATCH / 001 · BASS ONLY</p><h2>User Acid 168</h2></div></div><div class="signal"><span>SIGNAL</span><canvas id="scope" width="230" height="46" aria-label="Groove signal visualization"></canvas></div></div>
+          <div class="transport"><button id="play" class="play" disabled><span aria-hidden="true">▶</span> Play</button><button id="stop" class="stop" disabled><span aria-hidden="true">■</span> Stop</button><label class="tempo">TEMPO <span><input id="bpm" type="number" min="70" max="180" step="1" value="168" inputmode="numeric" aria-label="Tempo in BPM" title="Tempo, 70–180 BPM. Applies live when you confirm the value." /> BPM</span></label><div class="transport-status"><span id="status" role="status" aria-live="polite">Loading instrument…</span><span class="quiet-note">Start with a comfortable listening volume.</span></div></div>
+          <div class="sequence-header"><h3>01 <span>THE ACID LINE</span></h3><span class="sequence-hint">Tap a step to switch it on/off · pick its note · edits apply live</span></div>
           <div id="steps" class="steps" aria-label="Sixteen-step bass sequence"></div>
-          <div class="pattern-footer"><span><i></i> Active step <i class="outline"></i> Rest</span><button id="reset" class="text-button">↺ Reset pattern & sound</button></div>
-          <div class="sound-header"><h3>02 <span>SHAPE THE SOUND</span></h3><span>Changes follow the next notes.</span></div>
+          <div class="pattern-footer"><span><i></i> Lit = step on · step 08 plays two notes</span><button id="reset" class="text-button">↺ Stop &amp; reset to the acid line</button></div>
+          <div class="sound-header"><h3>02 <span>SHAPE THE SOUND</span></h3><span id="sound-hint">Sawtooth bass · CUTOFF, RESONANCE and LEVEL are live.</span></div>
           <div class="controls">
-            <label class="control filter">CUTOFF <output id="cutoff-value" for="cutoff">1.2 kHz</output><input id="cutoff" aria-label="Cutoff" type="range" min="0" max="100" value="50" /><span>Dark <b>Bright</b></span></label>
-            <label class="control">RESONANCE <output id="resonance-value" for="resonance">24%</output><input id="resonance" aria-label="Resonance" type="range" min="0" max="100" value="24" /><span>Round <b>Sharp</b></span></label>
-            <label class="control">LEVEL <output id="volume-value" for="volume">35%</output><input id="volume" aria-label="Level" type="range" min="0" max="70" value="35" /><span>Quiet <b>Loud</b></span></label>
+            <label class="control filter">CUTOFF <output id="cutoff-value" for="cutoff">949 Hz</output><input id="cutoff" aria-label="Cutoff" type="range" min="0" max="100" value="50" /><span>Dark <b>Bright</b></span></label>
+            <label class="control">RESONANCE <output id="resonance-value" for="resonance">50% · Q 15</output><input id="resonance" aria-label="Resonance" type="range" min="0" max="100" value="50" /><span>Round <b>Sharp</b></span></label>
+            <label class="control">LEVEL <output id="volume-value" for="volume">15%</output><input id="volume" aria-label="Level" type="range" min="0" max="70" value="15" /><span>Quiet <b>Loud</b></span></label>
           </div>
           <p id="error" class="error" role="alert" hidden></p>
         </section>
         <div class="under-instrument"><p><span class="small-star">✳</span> No install. No account. Just a little music.</p><p>Playback stops when you leave this tab.</p></div>
-        <details class="about"><summary>A small, open-source experiment <span>+</span></summary><p>This is an independent Strudel-powered web demo, not the native REZ macOS application. It has its own code, build and repository. No microphone, MIDI device, analytics or account access is used.</p><p>Built with Strudel. Licensed under AGPL-3.0-or-later. <a href="./SOURCE.html">Source code & licenses</a>. Phone layout is supported; real-device audio compatibility is still being tested.</p><p class="diagnostics" id="diagnostics">Audio not started.</p></details>
+        <details class="about"><summary>A small, open-source experiment <span>+</span></summary><p>This is an independent Strudel-powered web demo, not the native REZ macOS application. It has its own code, build and repository. No microphone, MIDI device, analytics or account access is used.</p><p>This version plays the acid bass line only. The original full User Acid 168 code, drums included, is kept in the source together with its drum samples; the drums are not played here.</p><p>Built with Strudel. Licensed under AGPL-3.0-or-later. <a href="./SOURCE.html">Source code & licenses</a>. Phone layout is supported; real-device audio compatibility is still being tested.</p><p class="diagnostics" id="diagnostics">Audio not started.</p></details>
       </main>
       <footer><span>REZ / EXPERIMENTS IN SOUND</span><a href="./SOURCE.html">Open source ↗</a><span>MADE TO BE PLAYED.</span></footer>
     </div>
