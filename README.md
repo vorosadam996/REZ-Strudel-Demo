@@ -1,38 +1,40 @@
 # REZ / Little Acid
 
-A small, open-source bass playground for the browser. Sixteen steps, a sawtooth synth and a resonant filter. Powered by Strudel.
+A small, open-source **acid-only 16-step sequencer** powered by Strudel. The initial **User Acid 168** bassline starts at **168 BPM** and **15% master level**. Playback starts only when you press Play.
 
-**[Play the demo](https://vorosadam996.github.io/REZ-Strudel-Demo/)** · **[License](LICENSE)** · **[Validation](VALIDATION.md)**
+**[Play the demo](https://vorosadam996.github.io/REZ-Strudel-Demo/)** · **[License](LICENSE)** · **[Validation](VALIDATION.md)** · **[Third-party notices](THIRD_PARTY_NOTICES.md)**
 
 ## Play
 
-1. Start at a comfortable device volume and press **Play**.
-2. Tap a numbered step to switch its note on or off; choose a pitch underneath.
-3. Change **tempo**, **cutoff**, **resonance** or **level**.
-4. **Stop** silences playback. **Reset pattern & sound** stops and restores the initial settings.
+1. Start at a comfortable device volume, then press **Play**.
+2. Toggle steps and select notes. Step 08 has two individually editable sub-notes.
+3. Change **TEMPO** (70–180 BPM), **CUTOFF**, **RESONANCE** and **LEVEL** (0–70%). Edits apply during playback; LEVEL controls a real master gain.
+4. **Stop** parks the master gain and hushes the scheduler. **Stop & reset to the acid line** restores the original notes, 168 BPM and 15% level.
 
-Audio starts only after a click/tap. Leaving the tab stops playback. Changes are temporary; reloading resets the demo. No microphone, MIDI permissions, account, analytics, external fonts or sample downloads are needed. Hosting providers still receive normal web requests.
+The app stops on page hide. No microphone, MIDI permission, account, analytics or external fonts are used. The acid sound is synthesized locally and requires no sample CDN. The optional recorded-loop player downloads four local WAV loops (about 4 MB) only when you press **Play loop**. Browser audio, audible Stop/restart and physical-device behavior still need human verification.
 
-## Deliberately small
+## Recorded loops
 
-- One 16-step bass sequencer, four beats per loop, 70–180 BPM.
-- Eight selectable pitches in C minor, per-step on/off.
-- Low-pass filter with bounded resonance and conservative gain.
-- Real signal display and audio-state diagnostics.
-- Responsive layout, keyboard-accessible controls and reduced-motion support.
+Choose recording **A/B** and part **1/2**, then press **Play loop**. Each recording provides two four-bar loops at an estimated 88 BPM. Changes during playback take effect on the next bar; changes during initial loading select the loop that starts. The loop tempo is fixed and independent of the acid TEMPO control.
 
-No drums, Orbit pad, piano, MIDI, cloud storage or native-app source is included. This is an **independent web project**, not a port or release of the separate native macOS app. It does not share that app's source, Git history, dependencies or build output. Sound equivalence is not claimed.
+The loop FILTER moves from low-pass on the left to high-pass on the right, with an open centre. Loop resonance and level are separate from the acid controls. Starting either player stops the other. Reset stops both and restores their defaults. Original recordings are preserved locally; only the four extracted loops are included. Their publication was authorized by the owner on 2026-10-28.
+
+Regenerate the loops with `node tools/make-loops.mjs <folder-containing-the-two-original-WAVs>`. The manifest records source hashes and sample positions; originals are not modified.
+
+## Preserved original
+
+`USER_ACID_CODE` in `src/state.js` preserves the original full Strudel stack, including drum calls, verbatim. Play uses `acidCode(state)` instead: the editable bassline alone, without drums. The complete original is reference source, not a promise that this release plays its drum bank.
+
+The development workspace separately retains the three original packs, sample files, studio experiment and Hercules material. The publication branch intentionally contains only the standalone acid demo and its corresponding source, tests, build inputs and notices. Native macOS/iOS source and history are not included.
 
 ## Run locally
 
-Requires Node.js 22.12+ (or 20.19+ on the Node 20 line) and npm. Development was checked with Node 24.
+Requires Node.js 22.15+ (the tests use `node:module` registerHooks) and npm; checked here with Node 24.21.0.
 
 ```sh
 npm ci --ignore-scripts
 npm run dev
 ```
-
-For a production build:
 
 ```sh
 npm test
@@ -40,18 +42,8 @@ npm run build
 npm run preview
 ```
 
-The generated `docs/` directory is the GitHub Pages site. Rebuild and commit it together with source changes. GitHub Pages serves `main` → `/docs`. Do not edit generated files by hand. Dependencies are pinned in `package-lock.json`.
+`docs/` is generated for GitHub Pages (main → /docs). Rebuild it with source changes. A development/release-branch push does not update the main-based public site. Review and merge are separate steps.
 
-## Source and licensing
+## Licensing and feedback
 
-This demo is licensed **AGPL-3.0-or-later**. See [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). The site links back to this repository and its source archive. Preserve the license, attribution, and corresponding-source obligations when distributing or hosting modified versions.
-
-Strudel provides the musical pattern scheduler, synthesizer and effects. The demo's interface and state/transport code are in `src/`; installation/build inputs are in `package.json` and `package-lock.json`. There is no dependency on a private repository. The npm packages include upstream source modules; see notices for source locations.
-
-## Feedback
-
-Use Issues for bugs or ideas. Include browser/OS, steps to reproduce, and what happened. Never include tokens, passwords or private project files. Small, focused pull requests are welcome; please run the tests and build.
-
-## Testing limits
-
-See [VALIDATION.md](VALIDATION.md) for observed checks. A narrow desktop viewport does not prove real-phone audio behavior. iPhone/Android audio, assistive technology and extended listening require separate human/device testing. This is an early demo, provided without warranty.
+AGPL-3.0-or-later; see LICENSE and THIRD_PARTY_NOTICES.md. Strudel provides scheduling, synthesis and effects; dependencies are pinned by package-lock.json. Source and dependency notices are linked from the app. Report bugs with browser/OS and reproduction steps, without credentials or private files. Human listening, mobile audio and long-run behavior remain unverified; see VALIDATION.md.

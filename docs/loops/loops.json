@@ -1,0 +1,71 @@
+{
+  "bpm": 88,
+  "bars": 4,
+  "beatsPerBar": 4,
+  "loops": [
+    {
+      "id": "a1",
+      "recording": "A",
+      "part": 1,
+      "url": "loops/a1.wav",
+      "source": "track_m125.5 - Main - 20261024T060330.wav",
+      "sourceSha256": "e91c035909dc4406509d7144363bf02a68ed6f9043f24955c2a9247533bb4903",
+      "startSample": 7493760,
+      "lengthSamples": 523636,
+      "sampleRate": 48000,
+      "gainDb": -0.46,
+      "peakDbfs": -9.99,
+      "wrapStep": 0.00068,
+      "sourceStep": 0.00069,
+      "sha256": "92efc274b3fa59c06f6c9f0ea3603489abe855efdc34d6e9e0d7a84e03d0b444"
+    },
+    {
+      "id": "a2",
+      "recording": "A",
+      "part": 2,
+      "url": "loops/a2.wav",
+      "source": "track_m125.5 - Main - 20261024T060330.wav",
+      "sourceSha256": "e91c035909dc4406509d7144363bf02a68ed6f9043f24955c2a9247533bb4903",
+      "startSample": 12337440,
+      "lengthSamples": 523636,
+      "sampleRate": 48000,
+      "gainDb": 4.39,
+      "peakDbfs": -3.65,
+      "wrapStep": 0.00012,
+      "sourceStep": 0.00017,
+      "sha256": "86a147121f73f7f5c190d2799da5e87519d0cb122cea1ae3d7b902cc0a33f14f"
+    },
+    {
+      "id": "b1",
+      "recording": "B",
+      "part": 1,
+      "url": "loops/b1.wav",
+      "source": "track_m125.5 - Main - 20261024T061612.wav",
+      "sourceSha256": "98b63482808a1c96b85a8f54ddfe732b22e4f5acb3ce96fe8bb39a8558da0040",
+      "startSample": 3040800,
+      "lengthSamples": 523636,
+      "sampleRate": 48000,
+      "gainDb": -0.63,
+      "peakDbfs": -11.8,
+      "wrapStep": 0.00034,
+      "sourceStep": 0.00029,
+      "sha256": "bbc6cd69732f9fcf470c6ea72c329ead2157ea2ddbcea1cf1dcf73ba65c5820a"
+    },
+    {
+      "id": "b2",
+      "recording": "B",
+      "part": 2,
+      "url": "loops/b2.wav",
+      "source": "track_m125.5 - Main - 20261024T061612.wav",
+      "sourceSha256": "98b63482808a1c96b85a8f54ddfe732b22e4f5acb3ce96fe8bb39a8558da0040",
+      "startSample": 8277600,
+      "lengthSamples": 523636,
+      "sampleRate": 48000,
+      "gainDb": 2.38,
+      "peakDbfs": -9.14,
+      "wrapStep": 0.08517,
+      "sourceStep": 0.08527,
+      "sha256": "6238c7a9371ecb51a34acd99112671cba2ac2e04fa7cbb40c7092176d34a2fde"
+    }
+  ]
+}

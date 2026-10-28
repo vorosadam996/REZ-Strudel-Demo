@@ -1,14 +1,14 @@
-# Status
+# Status — 2026-10-28
 
-Local demo complete. Independent web project; no native-app source or history copied.
+Integrated User Acid 168 and recorded-loop player. The original 168 BPM / 15% master defaults, editable 16 steps and split step 08 are preserved. Four loop excerpts add A/B recording and 1/2 part selection, fixed 88 BPM playback and LP/HP filtering. Starting either player stops the other; reset stops both.
 
-Scope: 16-step bass sequencer, transport, tempo, volume, cutoff/resonance and reset.
+- PASS: 44/44 tests, production build, silent browser transport switching, no console errors.
+- Fixed: changing recording while loops load now starts the latest selection.
+- NOT VERIFIED: human listening, audible transitions, downbeat accuracy, phones and extended playback.
+- Publication of the four loop excerpts and network git operations authorized on 2026-10-28. Source WAVs are not included.
+- Previous loop work preserved as local commit 5e39224 on claude/loop-player. Integration is based on PR #1 head d492748, preserving the newer acid runtime (Strudel 1.3.0).
+- Publication pending final GitHub update and Pages verification; do not treat local build success as deployment evidence.
 
-- PASS: six automated test groups, production build, Chrome Web Audio signal and transport checks, step/note/parameter editing and reset, narrow-viewport layout.
-- NOT VERIFIED: real-phone audio, human listening quality, long-run behavior and actual background-tab event handling.
-- Public repository: https://github.com/vorosadam996/REZ-Strudel-Demo
-- Live demo: https://vorosadam996.github.io/REZ-Strudel-Demo/
-- PASS: GitHub API confirmed a public, separate repository and a successful Pages build from main/docs. The live HTTPS page loaded in Chrome, entered running audio state after Play, scheduled notes and produced measured nonzero signal.
-- The separate native application's repository remained private, and its working tree/commit were unchanged during final separation checks.
-
-See VALIDATION.md for evidence and limits. The source and distribution directories are separate from every native application project. The default audio level is deliberately conservative.
+Repository: https://github.com/vorosadam996/REZ-Strudel-Demo
+Pages: https://vorosadam996.github.io/REZ-Strudel-Demo/
+PR: https://github.com/vorosadam996/REZ-Strudel-Demo/pull/1

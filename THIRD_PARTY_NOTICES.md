@@ -2,15 +2,15 @@
 
 ## Strudel
 
-This project uses `@strudel/web` **1.0.3**, licensed AGPL-3.0-or-later, and its bundled Strudel dependencies. Original authors include Felix Roos, Alex McLean and the Strudel contributors. Their notices remain in the upstream packages.
+This project uses `@strudel/web` **1.3.0**, licensed AGPL-3.0-or-later, and its bundled Strudel dependencies. Original authors include Felix Roos, Alex McLean and the Strudel contributors. Their notices remain in the upstream packages.
 
 - Project and documentation: https://strudel.cc/
 - Integration and licensing guidance: https://strudel.cc/technical-manual/project-start/
 - Upstream source: https://codeberg.org/uzu/strudel
-- Exact web package and included source: https://registry.npmjs.org/@strudel/web/-/web-1.0.3.tgz
+- Exact web package and included source: https://registry.npmjs.org/@strudel/web/-/web-1.3.0.tgz
 - Exact transitive package versions, source tarballs and integrity hashes: `package-lock.json`.
 
-The upstream packages are used without edits. The demo supplies a new interface and invokes public Strudel controls/scheduler/audio APIs. No third-party drum samples or external fonts are included. The complete AGPL license is in `LICENSE` and is also served by the site.
+The upstream packages are used without edits. The demo supplies a new interface and invokes public Strudel controls/scheduler/audio APIs. No external fonts are included. The local development workspace retains offline uzu/TR909 WAV samples, but they are excluded from the acid-only publication branch and build. The published runtime synthesizes its bassline and does not load those samples. No redistribution right is asserted for excluded assets. The complete AGPL license is in `LICENSE` and is also served by the site.
 
 ## Build tools and other dependencies
 
