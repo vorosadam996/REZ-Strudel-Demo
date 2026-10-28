@@ -14,3 +14,9 @@ Integrated User Acid 168 and recorded-loop player. The original 168 BPM / 15% ma
 Repository: https://github.com/vorosadam996/REZ-Strudel-Demo
 Pages: https://vorosadam996.github.io/REZ-Strudel-Demo/
 PR: https://github.com/vorosadam996/REZ-Strudel-Demo/pull/1
+
+## Scope fix — 2026-10-28
+
+The acid pattern did not feed the analyser read by the signal display. Added analyse channel 1 to the generated acid pattern and made the display read that channel explicitly. The original USER_ACID_CODE remains unchanged.
+
+PASS: new regression test failed before the fix and passed afterward; 45/45 tests and production build pass. Local browser at master LEVEL 0 showed a real waveform and analyser peak 0.5713 (maximum 0.6374). This signal is measured before master LEVEL, not speaker loudness. Playback was stopped after the silent check. Publishing this correction follows the approved demo publication scope.

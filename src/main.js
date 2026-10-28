@@ -90,7 +90,7 @@ function fail(error) {
 function drawScope() {
   const canvas = $('scope'), ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  const data = loopPlayer?.waveform(loopWave) ?? lib?.getAnalyzerData();
+  const data = loopPlayer?.waveform(loopWave) ?? lib?.getAnalyzerData('time', 1);
   let peak = 0;
   ctx.lineWidth = 1.4; ctx.strokeStyle = (playing() || loopPlayer?.state === 'playing') ? '#d5ff70' : '#50594b'; ctx.beginPath();
   for (let x = 0; x < canvas.width; x++) {

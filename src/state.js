@@ -73,7 +73,7 @@ export function acidCode(state) {
 note("${patternText(state)}")
   .s("sawtooth").lpf(${cutoff}).lpq(${q})
   .decay(0.1).sustain(0)
-  .shape(0.4).gain(0.7)`;
+  .shape(0.4).gain(0.7).analyze(1)`;
 }
 
 // Waits for the async audio unlock AND the async engine start, so `state`

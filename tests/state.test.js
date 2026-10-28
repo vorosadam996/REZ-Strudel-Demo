@@ -520,3 +520,13 @@ test('index.html: TEMPO, CUTOFF, RESONANCE and LEVEL are enabled; LEVEL starts a
   assert.match(html, /<input id="volume"[^>]*value="15"/);
   assert.ok(!/fixed pattern|step editing is unavailable/i.test(html));
 });
+
+test('acid notes feed the same analyser read by the waveform display, including live edits', async () => {
+  const state = freshState();
+  for (const cutoff of [state.cutoff, 90]) {
+    state.cutoff = cutoff;
+    const { haps } = await queryAcid(state, 1);
+    assert.ok(haps.length > 0);
+    assert.ok(haps.every(h => h.analyze === 1), 'each sounding note must feed scope analyser 1');
+  }
+});
