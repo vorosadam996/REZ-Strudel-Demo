@@ -2,7 +2,7 @@
 
 A small, open-source **acid-only 16-step sequencer** powered by Strudel. The initial **User Acid 168** bassline starts at **168 BPM** and **15% master level**. Playback starts only when you press Play.
 
-**[License](LICENSE)** · **[Validation](VALIDATION.md)** · **[Third-party notices](THIRD_PARTY_NOTICES.md)**
+**[Play the demo](https://vorosadam996.github.io/REZ-Strudel-Demo/)** · **[License](LICENSE)** · **[Validation](VALIDATION.md)** · **[Third-party notices](THIRD_PARTY_NOTICES.md)**
 
 ## Play
 
@@ -11,7 +11,15 @@ A small, open-source **acid-only 16-step sequencer** powered by Strudel. The ini
 3. Change **TEMPO** (70–180 BPM), **CUTOFF**, **RESONANCE** and **LEVEL** (0–70%). Edits apply during playback; LEVEL controls a real master gain.
 4. **Stop** parks the master gain and hushes the scheduler. **Stop & reset to the acid line** restores the original notes, 168 BPM and 15% level.
 
-The app stops on page hide. No microphone, MIDI permission, account, analytics or external fonts are used. The sound is synthesized locally; the published acid-only demo contains no WAV samples and requires no sample CDN. Browser audio, audible Stop/restart and physical-device behavior still need human verification.
+The app stops on page hide. No microphone, MIDI permission, account, analytics or external fonts are used. The acid sound is synthesized locally and requires no sample CDN. The optional recorded-loop player downloads four local WAV loops (about 4 MB) only when you press **Play loop**. Browser audio, audible Stop/restart and physical-device behavior still need human verification.
+
+## Recorded loops
+
+Choose recording **A/B** and part **1/2**, then press **Play loop**. Each recording provides two four-bar loops at an estimated 88 BPM. Changes during playback take effect on the next bar; changes during initial loading select the loop that starts. The loop tempo is fixed and independent of the acid TEMPO control.
+
+The loop FILTER moves from low-pass on the left to high-pass on the right, with an open centre. Loop resonance and level are separate from the acid controls. Starting either player stops the other. Reset stops both and restores their defaults. Original recordings are preserved locally; only the four extracted loops are included. Their publication was authorized by the owner on 2026-10-28.
+
+Regenerate the loops with `node tools/make-loops.mjs <folder-containing-the-two-original-WAVs>`. The manifest records source hashes and sample positions; originals are not modified.
 
 ## Preserved original
 

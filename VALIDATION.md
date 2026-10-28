@@ -1,6 +1,15 @@
 # Validation
 
-## Current acid-only build — 2026-10-24
+## Integrated acid and recorded loops — 2026-10-28
+
+- PASS: 44/44 Node tests (36 acid/transport tests plus 8 loop tests); Vite production build. The existing 650 kB Strudel runtime warning remains.
+- PASS: production preview in the Codex browser: 168 BPM, acid LEVEL 15%, editable split step 08 and recorded-loop controls loaded; no autoplay.
+- PASS: with both levels explicitly set to zero, manual UI test of loop start → acid start → loop start → loop stop. Status transitions confirmed the two players stop each other; no browser console errors. Reload restored default controls and stopped playback. This is a silent state test, not a listening test.
+- PASS: regression test reproduces incorrect A1 playback after choosing B1 during initial loading; fixed version starts B1.
+- Source recordings remain outside the repo. Four extracted loops and their source hashes are in public/loops and the built docs/loops. Publication authorized by the user on 2026-10-28.
+- NOT VERIFIED: listening quality, downbeat accuracy, audible transitions, physical phones and long-duration playback. Previous Claude measurements are not a substitute for current listening.
+
+## Previous acid-only build — 2026-10-24
 
 - PASS: **36/36** silent Node tests in tests/state.test.js, rerun for this update. They check the verbatim original stack, the editable bassline including step 08 subdivisions, actual Strudel event output for default/edited notes and tempo/filter/resonance, bounded numeric inputs, independent reset, serialized live updates, asynchronous Play/Stop races, rejected evaluations and fail-closed master gain behavior. No real audio output is started by these tests.
 - PASS: the current browser UI loaded at 168 BPM and 15% level, with the 16-step editor and enabled controls. Play was not pressed. This proves page readiness, not sound quality or audible control behavior.

@@ -10,10 +10,15 @@
 // 0 and hushes the scheduler (1.3.0 has no panic API); the audible result
 // still needs the browser listening check.
 import './style.css';
+import { LOOP_LIMITS, freshLoopState, filterSetting, loopId, LoopPlayer } from './loopPlayer.js';
 import { freshState, boundedValue, resumeAudioContext, acidCode, cutoffHz, resonanceQ, NOTES, Transport, createMasterLink, createStartGate, createSerialQueue, createLiveUpdate, requireStarted } from './state.js';
 
 const $ = id => document.getElementById(id);
 let state = freshState();
+const loopState = freshLoopState();
+let loopPlayer, loopData;
+const loopWave = new Float32Array(2048);
+const hz = value => value >= 1000 ? `${(value / 1000).toFixed(1)} kHz` : `${value} Hz`;
 let lib, audio, ready = false;
 let maxPeak = 0, frame = 0;
 let playing = () => transport?.state === 'playing';
@@ -75,7 +80,7 @@ function evaluateState(autostart) {
 
 // --- UI / audio glue ------------------------------------------------------
 function fail(error) {
-  transport?.stop();
+  transport?.stop(); loopPlayer?.stop();
   $('error').hidden = false;
   $('error').textContent = `Audio could not continue. ${error?.message ?? 'Please reload and try again.'}`;
   $('status').textContent = 'Audio unavailable — see message below.';
@@ -85,9 +90,9 @@ function fail(error) {
 function drawScope() {
   const canvas = $('scope'), ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  const data = lib?.getAnalyzerData();
+  const data = loopPlayer?.waveform(loopWave) ?? lib?.getAnalyzerData();
   let peak = 0;
-  ctx.lineWidth = 1.4; ctx.strokeStyle = playing() ? '#d5ff70' : '#50594b'; ctx.beginPath();
+  ctx.lineWidth = 1.4; ctx.strokeStyle = (playing() || loopPlayer?.state === 'playing') ? '#d5ff70' : '#50594b'; ctx.beginPath();
   for (let x = 0; x < canvas.width; x++) {
     const sample = data?.[Math.floor(x / canvas.width * data.length)] ?? 0;
     peak = Math.max(peak, Math.abs(sample));
@@ -95,6 +100,7 @@ function drawScope() {
     x ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
   }
   ctx.stroke(); maxPeak = Math.max(maxPeak, peak);
+  if (loopPlayer?.state === 'playing' && loopPlayer.pending && loopPlayer.pendingIn() === null) $('loop-status').textContent = `Loop ${loopName()} playing.`;
   if (frame++ % 15 === 0) $('diagnostics').textContent = `Audio: ${audio?.state ?? 'not started'} · Transport: ${transport?.state ?? 'loading'} · Master: ${master_linked_label()} · Peak now: ${peak.toFixed(4)} · Peak max: ${maxPeak.toFixed(4)}`;
   requestAnimationFrame(drawScope);
 }
@@ -227,20 +233,70 @@ async function load() {
       silence();
     },
   }, changeTransport);
-  ready = true; controls(); changeTransport('stopped');
+  ready = true; controls(); changeTransport('stopped'); changeLoop('stopped');
 }
 
 function changeTransport(value) {
   const isPlaying = value === 'playing';
   $('play').disabled = !ready || value !== 'stopped';
   $('stop').disabled = !ready || value === 'stopped';
-  $('live-dot').classList.toggle('lit', isPlaying);
+  $('live-dot').classList.toggle('lit', isPlaying || loopPlayer?.state === 'playing');
   $('status').textContent = isPlaying
     ? 'Playing — acid line, edits apply live.'
     : value === 'starting' ? 'Opening audio…' : 'Ready when you are.';
   // Edits made while the start was in flight are applied once it plays.
   if (isPlaying && revision !== appliedRevision) liveUpdate();
 }
+
+function loopControls() {
+  for (const key of ['filter', 'resonance', 'level']) $(`loop-${key}`).value = loopState[key];
+  const { type, frequency } = filterSetting(loopState.filter);
+  $('loop-filter-value').value = loopState.filter === 0 ? 'Open' : `${type === 'lowpass' ? 'LP' : 'HP'} ${hz(frequency)}`;
+  $('loop-resonance-value').value = `${loopState.resonance}%`;
+  $('loop-level-value').value = `${loopState.level}%`;
+  document.querySelectorAll('[data-recording]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.recording === loopState.recording)));
+  document.querySelectorAll('[data-part]').forEach(b => b.setAttribute('aria-pressed', String(Number(b.dataset.part) === loopState.part)));
+}
+
+const loopName = () => `${loopState.recording}${loopState.part}`;
+function changeLoop(value) {
+  $('loop-play').disabled = !ready || value !== 'stopped';
+  $('loop-stop').disabled = !ready || value === 'stopped';
+  $('live-dot').classList.toggle('lit', value === 'playing' || transport?.state === 'playing');
+  $('loop-status').textContent = value === 'playing' ? `Loop ${loopName()} playing.` : value === 'loading' ? 'Loading loops…' : loopPlayer ? 'Loop stopped.' : 'Loops (about 4 MB) load when you press Play loop.';
+}
+
+async function prepareLoops() {
+  audio = lib.getAudioContext();
+  await audio.resume();
+  if (audio.state !== 'running') throw new Error('Audio is suspended. Tap Play loop again.');
+  if (!loopData) {
+    const response = await fetch('./loops/loops.json');
+    if (!response.ok) throw new Error('The recorded loops could not be loaded.');
+    loopData = await response.json();
+  }
+  await loopPlayer.prepare(loopData);
+}
+
+// Created on the first Play loop tap so no audio context opens before a gesture.
+function createLoopPlayer() {
+  const context = lib.getAudioContext();
+  return new LoopPlayer(context, {
+    load: async url => {
+      const response = await fetch(`./${url}`);
+      if (!response.ok) throw new Error('The recorded loops could not be loaded.');
+      return context.decodeAudioData(await response.arrayBuffer());
+    },
+    onChange: changeLoop,
+  });
+}
+
+function chooseLoop() {
+  loopControls();
+  const when = loopPlayer?.select(loopId(loopState.recording, loopState.part));
+  if (when != null) $('loop-status').textContent = `Switching to ${loopName()} on the next bar…`;
+}
+
 
 // Step grid: the button switches a step on/off, each select sets a note.
 // Step 08 keeps its two sub-notes, each with its own select.
@@ -292,13 +348,29 @@ $('volume').addEventListener('input', () => {
   applyLevel();   // real master gain while playing; state-only otherwise
 });
 
-$('play').addEventListener('click', () => { $('error').hidden = true; transport?.play().catch(fail); });
+$('play').addEventListener('click', () => { $('error').hidden = true; loopPlayer?.stop(); transport?.play().catch(fail); });
 $('stop').addEventListener('click', () => transport?.stop());
 // Reset: stop the transport, then restore the acid-only starting line.
 $('reset').addEventListener('click', () => {
-  transport?.stop(); state = freshState(); revision++; controls(); drawSteps(); $('error').hidden = true;
+  transport?.stop(); loopPlayer?.stop(); Object.assign(loopState, freshLoopState()); loopControls(); state = freshState(); revision++; controls(); drawSteps(); $('error').hidden = true;
 });
-document.addEventListener('visibilitychange', () => { if (document.hidden) transport?.stop(); });
-window.addEventListener('pagehide', () => transport?.stop());
-drawSteps(); drawScope();
+for (const key of ['filter', 'resonance', 'level']) {
+  $(`loop-${key}`).addEventListener('input', event => {
+    const [min, max] = LOOP_LIMITS[key], value = Math.round(Number(event.target.value));
+    loopState[key] = Number.isFinite(value) ? Math.min(max, Math.max(min, value)) : loopState[key];
+    loopControls(); loopPlayer?.set(loopState);
+  });
+}
+document.querySelectorAll('[data-recording]').forEach(b => b.addEventListener('click', () => { loopState.recording = b.dataset.recording; chooseLoop(); }));
+document.querySelectorAll('[data-part]').forEach(b => b.addEventListener('click', () => { loopState.part = Number(b.dataset.part); chooseLoop(); }));
+$('loop-play').addEventListener('click', () => {
+  if (!ready) return;
+  $('error').hidden = true; transport?.stop();
+  loopPlayer ??= createLoopPlayer();
+  loopPlayer.play(loopId(loopState.recording, loopState.part), loopState, prepareLoops).catch(fail);
+});
+$('loop-stop').addEventListener('click', () => loopPlayer?.stop());
+document.addEventListener('visibilitychange', () => { if (document.hidden) { transport?.stop(); loopPlayer?.stop(); } });
+window.addEventListener('pagehide', () => { transport?.stop(); loopPlayer?.stop(); });
+drawSteps(); loopControls(); drawScope();
 load().catch(fail);

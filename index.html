@@ -25,10 +25,22 @@
             <label class="control">RESONANCE <output id="resonance-value" for="resonance">50% · Q 15</output><input id="resonance" aria-label="Resonance" type="range" min="0" max="100" value="50" /><span>Round <b>Sharp</b></span></label>
             <label class="control">LEVEL <output id="volume-value" for="volume">15%</output><input id="volume" aria-label="Level" type="range" min="0" max="70" value="15" /><span>Quiet <b>Loud</b></span></label>
           </div>
+          <div class="sound-header loop-header"><h3>03 <span>PLAY A RECORDED LOOP</span></h3><span>Two recordings · fixed 88 BPM · switches on the next bar</span></div>
+          <div class="loop-panel">
+            <div class="loop-transport"><button id="loop-play" class="play" disabled><span aria-hidden="true">▶</span> Play loop</button><button id="loop-stop" class="stop" disabled><span aria-hidden="true">■</span> Stop</button></div>
+            <div class="loop-choice" role="group" aria-label="Recording"><span>RECORDING</span><button class="choice" data-recording="A" aria-pressed="true">A</button><button class="choice" data-recording="B" aria-pressed="false">B</button></div>
+            <div class="loop-choice" role="group" aria-label="Loop part"><span>PART</span><button class="choice" data-part="1" aria-pressed="true">1</button><button class="choice" data-part="2" aria-pressed="false">2</button></div>
+            <span id="loop-status" class="loop-status" role="status" aria-live="polite">Loops (about 4 MB) load when you press Play loop.</span>
+          </div>
+          <div class="controls">
+            <label class="control filter">FILTER <output id="loop-filter-value" for="loop-filter">Open</output><input id="loop-filter" aria-label="Loop filter" type="range" min="-100" max="100" value="0" /><span>Low-pass <b>High-pass</b></span></label>
+            <label class="control">RESONANCE <output id="loop-resonance-value" for="loop-resonance">10%</output><input id="loop-resonance" aria-label="Loop resonance" type="range" min="0" max="100" value="10" /><span>Round <b>Sharp</b></span></label>
+            <label class="control">LEVEL <output id="loop-level-value" for="loop-level">35%</output><input id="loop-level" aria-label="Loop level" type="range" min="0" max="70" value="35" /><span>Quiet <b>Loud</b></span></label>
+          </div>
           <p id="error" class="error" role="alert" hidden></p>
         </section>
         <div class="under-instrument"><p><span class="small-star">✳</span> No install. No account. Just a little music.</p><p>Playback stops when you leave this tab.</p></div>
-        <details class="about"><summary>A small, open-source experiment <span>+</span></summary><p>This is an independent Strudel-powered web demo, not the native REZ macOS application. It has its own code, build and repository. No microphone, MIDI device, analytics or account access is used.</p><p>This version plays the acid bass line only. The original full User Acid 168 code, drums included, is kept in the source together with its drum samples; the drums are not played here.</p><p>Built with Strudel. Licensed under AGPL-3.0-or-later. <a href="./SOURCE.html">Source code & licenses</a>. Phone layout is supported; real-device audio compatibility is still being tested.</p><p class="diagnostics" id="diagnostics">Audio not started.</p></details>
+        <details class="about"><summary>A small, open-source experiment <span>+</span></summary><p>This is an independent Strudel-powered web demo, not the native REZ macOS application. It has its own code, build and repository. No microphone, MIDI device, analytics or account access is used.</p><p>This version plays the acid bass line only. The original full User Acid 168 code, drums included, is preserved as reference source. The separate recorded-loop player uses four local WAV excerpts and stops the acid line when started.</p><p>Built with Strudel. Licensed under AGPL-3.0-or-later. <a href="./SOURCE.html">Source code & licenses</a>. Phone layout is supported; real-device audio compatibility is still being tested.</p><p class="diagnostics" id="diagnostics">Audio not started.</p></details>
       </main>
       <footer><span>REZ / EXPERIMENTS IN SOUND</span><a href="./SOURCE.html">Open source ↗</a><span>MADE TO BE PLAYED.</span></footer>
     </div>
