@@ -7,7 +7,9 @@ Integrated User Acid 168 and recorded-loop player. The original 168 BPM / 15% ma
 - NOT VERIFIED: human listening, audible transitions, downbeat accuracy, phones and extended playback.
 - Publication of the four loop excerpts and network git operations authorized on 2026-10-28. Source WAVs are not included.
 - Previous loop work preserved as local commit 5e39224 on claude/loop-player. Integration is based on PR #1 head d492748, preserving the newer acid runtime (Strudel 1.3.0).
-- Publication pending final GitHub update and Pages verification; do not treat local build success as deployment evidence.
+- RELEASED: PR #1 merged on 2026-10-28 at 19:48 UTC; merge commit b0573283b0f894cb121877bef85c68cfba4b2ec1. GitHub Pages API reported built for this commit.
+- PASS: live HTTPS page ready at 168 BPM; all four published WAVs match manifest SHA-256 hashes. Silent live loop start/stop succeeded without console errors.
+- A following documentation-only commit records this deployment evidence; no application or audio changes in that follow-up.
 
 Repository: https://github.com/vorosadam996/REZ-Strudel-Demo
 Pages: https://vorosadam996.github.io/REZ-Strudel-Demo/

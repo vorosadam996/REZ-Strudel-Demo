@@ -2,6 +2,8 @@
 
 ## Integrated acid and recorded loops — 2026-10-28
 
+- RELEASED: PR #1 merged at b057328; Pages build succeeded. Live HTTPS UI loaded ready at 168 BPM. All four hosted WAV SHA-256 hashes and the manifest matched the local build. A silent live loop start/stop passed without console errors.
+
 - PASS: 44/44 Node tests (36 acid/transport tests plus 8 loop tests); Vite production build. The existing 650 kB Strudel runtime warning remains.
 - PASS: production preview in the Codex browser: 168 BPM, acid LEVEL 15%, editable split step 08 and recorded-loop controls loaded; no autoplay.
 - PASS: with both levels explicitly set to zero, manual UI test of loop start → acid start → loop start → loop stop. Status transitions confirmed the two players stop each other; no browser console errors. Reload restored default controls and stopped playback. This is a silent state test, not a listening test.
